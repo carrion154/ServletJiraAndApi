@@ -1,0 +1,61 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    $webResourceManager.requireResource("com.jiradev.jira.plugins.user-role-project-tab:user-role-project-tab-resources")
+</head>
+
+<br>
+
+<div>
+
+<form method="post">
+    <label  for="project">Project:</label>
+    <select name="project" id="project">
+    	#foreach($project in $projects)
+    		<option value="$project">$project</option>
+    	#end
+    </select>
+    
+    <br>
+    
+    <label  for="issue">Issue Key:</label>
+    <select name="issue" id="issue">
+    	#foreach($issue in $issues)
+    		<option value="$issue">$issue.getKey()</option>
+    	#end
+    </select>
+    
+    <br>
+    
+    <button id="btn-save" type="submit">Save</button>
+
+
+</form>
+
+</div>
+
+<script>
+    console.log("loading...");
+
+    $('#btn-save').click(function(event) {
+      event.preventDefault();
+
+      var project = $('#project').val();
+      var issue = $('#issue').val();
+
+      jQuery.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json;",
+        context : document.body,
+        url: AJS.params.baseURL + "/rest/training-service/1.0/form-data/create",
+        data: JSON.stringify({ project: project, issue: issue }),
+        success: function(data) {
+          console.log('Success');
+        },
+        error: function(xhr, status, error) {
+          console.log('Failure');
+        }
+      });
+    });
+
+</script>

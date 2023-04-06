@@ -1,0 +1,9 @@
+com\jiradev\jira\plugins\api\MyPluginComponent.class
+com\jiradev\jira\plugins\FormDataDTO.class
+com\jiradev\jira\plugins\config\MyPluginJavaConfig.class
+com\jiradev\jira\plugins\TrainingService.class
+com\jiradev\jira\plugins\TrainingController.class
+com\jiradev\jira\plugins\FormDataRequest.class
+com\jiradev\jira\plugins\FormData.class
+com\jiradev\jira\plugins\jira\tabpanels\UserRoleProjectTabPanel.class
+com\jiradev\jira\plugins\impl\MyPluginComponentImpl.class
